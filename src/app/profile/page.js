@@ -121,7 +121,7 @@ export default function ProfilePage() {
     <div className="flex min-h-screen bg-background">
       <DashboardSidebar />
 
-      <div className="flex-1 md:ml-64 p-4 md:p-8 pt-24 md:pt-8">
+      <div className="flex-1 min-w-0 md:ml-64 p-4 md:p-8 pt-24 md:pt-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10">
             <h1 className="text-4xl font-extrabold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent mb-2">
@@ -132,7 +132,7 @@ export default function ProfilePage() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             <div className="lg:col-span-1 space-y-8">
-              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-8 border border-white/5 shadow-2xl relative overflow-hidden group">
+              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-6 md:p-8 border border-white/5 shadow-2xl relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-6">
                   <button className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-primary hover:bg-white/10 transition-all hover:scale-110 active:scale-95">
                     <Edit className="w-5 h-5" />
@@ -141,7 +141,7 @@ export default function ProfilePage() {
 
                 <div className="text-center mb-10 pt-4">
                   <div className="relative inline-block mb-6">
-                    <div className="w-32 h-32 rounded-[2rem] bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-4xl font-black shadow-2xl group-hover:scale-105 transition-transform duration-500">
+                    <div className="w-32 h-32 rounded-[2rem] bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-4xl font-black shadow-2xl transition-transform duration-500">
                       {initials}
                     </div>
                     <div className="absolute -bottom-2 -right-2 w-10 h-10 rounded-xl bg-[#10b981] border-4 border-[#050507] flex items-center justify-center shadow-lg">
@@ -161,7 +161,7 @@ export default function ProfilePage() {
                   </div>
                 </div>
 
-                <div className="space-y-4 pt-8 border-t border-white/5">
+                <div className="space-y-4 pt-8 border-t border-white/5 overflow-hidden">
                   {[
                     { icon: Mail, value: user?.email || "zohaibbaig144@gmail.com" },
                     { icon: Phone, value: "+92 300 1234567" },
@@ -169,17 +169,17 @@ export default function ProfilePage() {
                     { icon: MapPin, value: "Islamabad, PK" },
                     { icon: Calendar, value: "Joined Jan 2024" }
                   ].map((item, i) => (
-                    <div key={i} className="flex items-center gap-4 text-muted-foreground hover:text-white transition-colors group/item">
-                      <div className="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center group-hover/item:bg-primary/20 transition-all">
+                    <div key={i} className="flex items-center gap-4 text-muted-foreground hover:text-white transition-colors group/item min-w-0">
+                      <div className="w-10 h-10 rounded-xl bg-white/5 flex-shrink-0 flex items-center justify-center group-hover/item:bg-primary/20 transition-all">
                         <item.icon className="w-5 h-5 text-primary" />
                       </div>
-                      <span className="text-sm font-bold">{item.value}</span>
+                      <span className="text-sm font-bold truncate">{item.value}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-8 border border-white/5 shadow-2xl">
+              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-6 md:p-8 border border-white/5 shadow-2xl">
                 <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
                    <div className="w-1.5 h-6 bg-primary rounded-full" />
                    Skills & Expertise
@@ -205,7 +205,7 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-primary to-secondary rounded-[2.5rem] p-8 shadow-2xl text-white relative overflow-hidden group">
+              <div className="bg-gradient-to-br from-primary to-secondary rounded-[2.5rem] p-6 md:p-8 shadow-2xl text-white relative overflow-hidden group">
                 <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity" />
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-6">
@@ -232,7 +232,7 @@ export default function ProfilePage() {
             </div>
 
             <div className="lg:col-span-2 space-y-8">
-              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-8 border border-white/5 shadow-2xl relative">
+              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-6 md:p-8 border border-white/5 shadow-2xl relative">
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-2xl font-bold flex items-center gap-3">
                     <div className="w-1.5 h-6 bg-secondary rounded-full" />
@@ -252,7 +252,7 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-8 border border-white/5 shadow-2xl">
+              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-6 md:p-8 border border-white/5 shadow-2xl">
                 <div className="flex items-center justify-between mb-8">
                   <h2 className="text-2xl font-bold flex items-center gap-3">
                     <div className="w-1.5 h-6 bg-primary rounded-full" />
@@ -285,7 +285,7 @@ export default function ProfilePage() {
                             </span>
                           </div>
                           <p className="text-sm text-muted-foreground mb-6 font-medium">{service.category}</p>
-                          <div className="flex items-center gap-8">
+                          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-8">
                             <div className="flex items-center gap-2">
                               <Star className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                               <span className="font-black">{service.rating}</span>
@@ -306,7 +306,7 @@ export default function ProfilePage() {
                 </div>
               </div>
 
-              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-8 border border-white/5 shadow-2xl">
+              <div className="bg-card/30 backdrop-blur-sm rounded-[2.5rem] p-6 md:p-8 border border-white/5 shadow-2xl">
                 <h2 className="text-2xl font-bold mb-10 flex items-center gap-3">
                   <div className="w-1.5 h-6 bg-secondary rounded-full" />
                   Client Reviews
@@ -314,8 +314,8 @@ export default function ProfilePage() {
                 <div className="space-y-10">
                   {reviews.map((review, index) => (
                     <div key={index} className="relative group/review">
-                      <div className="flex items-start gap-6">
-                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-black shadow-xl flex-shrink-0 group-hover/review:scale-110 transition-transform duration-500">
+                      <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
+                        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-black shadow-xl flex-shrink-0 transition-transform duration-500">
                           {review.avatar}
                         </div>
                         <div className="flex-1">
