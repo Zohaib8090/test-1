@@ -212,7 +212,7 @@ export default function SettingsPage() {
                       className={`flex-shrink-0 flex items-center gap-3 px-4 py-3 rounded-xl font-bold text-sm transition-all duration-200 ${
                         isActive
                           ? 'bg-gradient-to-r from-primary to-secondary text-white shadow-lg'
-                          : 'text-muted-foreground hover:bg-white/5 hover:text-white'
+                          : 'text-muted-foreground hover:bg-foreground/5 hover:text-foreground'
                       } w-auto lg:w-full`}
                     >
                       <Icon className="w-4 h-4" />
@@ -329,11 +329,11 @@ export default function SettingsPage() {
                             value={val}
                             onChange={e => set(e.target.value)}
                             placeholder="••••••••"
-                            className="w-full px-5 py-3.5 pr-12 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground font-bold transition-all"
+                            className="w-full px-5 py-3.5 pr-12 bg-white/5 border border-white/10 rounded-2xl focus:outline-none focus:ring-2 focus:ring-primary/30 text-foreground font-bold hover:bg-card transition-all"
                           />
                           <button
                             onClick={() => setShowPass(!showPass)}
-                            className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-white transition-colors"
+                            className="absolute right-4 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
                           >
                             {showPass ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                           </button>
