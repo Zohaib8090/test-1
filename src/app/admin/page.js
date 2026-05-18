@@ -110,7 +110,7 @@ export default function AdminPanel() {
     return (
       <div className="flex min-h-screen bg-background">
         <DashboardSidebar />
-        <div className="flex-1 ml-64 flex items-center justify-center">
+        <div className="flex-1 md:ml-64 flex items-center justify-center pt-24 md:pt-8">
           <Loader2 className="w-10 h-10 animate-spin text-primary" />
         </div>
       </div>
@@ -123,7 +123,7 @@ export default function AdminPanel() {
     <div className="flex min-h-screen bg-background">
       <DashboardSidebar />
 
-      <div className="flex-1 ml-64 p-8">
+      <div className="flex-1 md:ml-64 p-4 md:p-8 pt-24 md:pt-8">
         <div className="max-w-7xl mx-auto">
           <div className="mb-10">
             <div className="flex items-center justify-between">

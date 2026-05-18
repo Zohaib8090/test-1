@@ -131,7 +131,7 @@ export default function SettingsPage() {
     <div className="flex min-h-screen bg-background">
       <DashboardSidebar />
 
-      <div className="flex-1 ml-64 p-8">
+      <div className="flex-1 md:ml-64 p-4 md:p-8 pt-24 md:pt-8">
         <div className="max-w-5xl mx-auto">
 
           {/* Header */}

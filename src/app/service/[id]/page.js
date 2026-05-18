@@ -48,7 +48,7 @@ export default function ServiceDetailPage({ params: paramsPromise }) {
     return (
       <div className="flex min-h-screen bg-background">
         <DashboardSidebar />
-        <div className="flex-1 ml-64 flex items-center justify-center">
+        <div className="flex-1 md:ml-64 flex items-center justify-center pt-24 md:pt-8">
           <div className="text-muted-foreground text-lg font-bold animate-pulse">Loading service...</div>
         </div>
       </div>
@@ -59,7 +59,7 @@ export default function ServiceDetailPage({ params: paramsPromise }) {
     return (
       <div className="flex min-h-screen bg-background">
         <DashboardSidebar />
-        <div className="flex-1 ml-64 flex items-center justify-center">
+        <div className="flex-1 md:ml-64 flex items-center justify-center pt-24 md:pt-8">
           <div className="text-center">
             <div className="text-red-400 text-xl font-bold mb-4">{error || 'Service not found'}</div>
             <Link href="/marketplace" className="text-primary font-bold hover:underline">← Back to Marketplace</Link>
@@ -73,7 +73,7 @@ export default function ServiceDetailPage({ params: paramsPromise }) {
     <div className="flex min-h-screen bg-background">
       <DashboardSidebar />
 
-      <div className="flex-1 ml-64 p-8">
+      <div className="flex-1 md:ml-64 p-4 md:p-8 pt-24 md:pt-8">
         <div className="max-w-7xl mx-auto">
 
           {/* Back link */}
