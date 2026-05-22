@@ -2,13 +2,43 @@
 
 import Link from "next/link";
 import { GraduationCap, Menu, X } from "lucide-react";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function NavBar({ transparent = false }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      // Toggle transparency based on scroll height
+      if (currentScrollY > 20) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+      
+      // Only hide if we scrolled down past 80px
+      if (currentScrollY > lastScrollY && currentScrollY > 80) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${transparent && !isOpen ? 'bg-transparent' : 'bg-[#050507]/80 backdrop-blur-lg border-b border-white/10'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transform transition-all duration-300 ${
+      visible ? 'translate-y-0' : '-translate-y-full'
+    } ${transparent && !isScrolled && !isOpen ? 'bg-transparent' : 'bg-[#050507]/80 backdrop-blur-lg border-b border-white/10'}`}>
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
