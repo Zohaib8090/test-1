@@ -12,11 +12,12 @@ async function seed() {
     await db.run('DELETE FROM services').catch(() => {});
     await db.run('DELETE FROM users').catch(() => {});
 
-    // Restart sequences if PG
+    // Sync sequences with maximum IDs if PG to avoid duplicate key errors on subsequent inserts/signups
     if (db.isPostgres) {
-      await db.run('ALTER SEQUENCE users_id_seq RESTART WITH 1').catch(() => {});
-      await db.run('ALTER SEQUENCE services_id_seq RESTART WITH 1').catch(() => {});
-      await db.run('ALTER SEQUENCE bookings_id_seq RESTART WITH 1').catch(() => {});
+      await db.run("SELECT setval('users_id_seq', (SELECT MAX(id) FROM users))").catch(() => {});
+      await db.run("SELECT setval('services_id_seq', (SELECT MAX(id) FROM services))").catch(() => {});
+      await db.run("SELECT setval('bookings_id_seq', (SELECT MAX(id) FROM bookings))").catch(() => {});
+      await db.run("SELECT setval('ratings_id_seq', (SELECT MAX(id) FROM ratings))").catch(() => {});
     }
 
     console.log('Seeding localized Pakistani users...');
