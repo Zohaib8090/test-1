@@ -33,7 +33,8 @@ export const authOptions = {
           name: user.name,
           email: user.email,
           image: user.avatar,
-          skills: user.skills
+          skills: user.skills,
+          role: user.role
         };
       }
     })

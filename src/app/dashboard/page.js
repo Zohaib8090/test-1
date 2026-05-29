@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import DashboardSidebar from "@/components/DashboardSidebar";
 import {
   DollarSign,
@@ -94,10 +95,13 @@ export default function DashboardPage() {
               </h1>
               <p className="text-muted-foreground text-lg font-medium">Here's what's happening with your services today</p>
             </div>
-            <button className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group">
+            <Link
+              href="/notifications"
+              className="flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group"
+            >
               <Bell className="w-5 h-5 text-primary group-hover:scale-110 transition-transform" />
               <span className="font-semibold text-foreground">Notifications</span>
-            </button>
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">

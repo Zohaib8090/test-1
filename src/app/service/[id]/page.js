@@ -1,12 +1,13 @@
 'use client';
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import Link from "next/link";
+import { useParams } from 'next/navigation';
 import DashboardSidebar from "@/components/DashboardSidebar";
 import { Star, MessageCircle, Calendar, Clock, CheckCircle2, Award, Users, ArrowLeft } from "lucide-react";
 
-export default function ServiceDetailPage({ params: paramsPromise }) {
-  const params = use(paramsPromise);
+export default function ServiceDetailPage() {
+  const params = useParams();
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');

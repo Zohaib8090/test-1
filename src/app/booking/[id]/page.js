@@ -1,14 +1,14 @@
 'use client';
 
-import { useState, useEffect, use } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useParams } from 'next/navigation';
 import Link from "next/link";
 import DashboardSidebar from "@/components/DashboardSidebar";
 import { Calendar, Clock, CreditCard, CheckCircle2, User, MessageSquare, ChevronRight, Loader2 } from "lucide-react";
 
-export default function BookingPage({ params: paramsPromise }) {
-  const params = use(paramsPromise);
+export default function BookingPage() {
+  const params = useParams();
   const { data: session } = useSession();
   const router = useRouter();
 
