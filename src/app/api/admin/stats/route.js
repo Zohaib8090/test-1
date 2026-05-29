@@ -14,7 +14,7 @@ export async function GET() {
     const userCount = await db.get('SELECT COUNT(*) as count FROM users');
     const serviceCount = await db.get('SELECT COUNT(*) as count FROM services');
     const bookingCount = await db.get('SELECT COUNT(*) as count FROM bookings');
-    const revenue = await db.get('SELECT SUM(total_amount) as total FROM bookings WHERE status = "confirmed"');
+    const revenue = await db.get("SELECT SUM(total_amount) as total FROM bookings WHERE status = 'confirmed'");
 
     // Category distribution
     const categories = await db.all('SELECT category as name, COUNT(*) as value FROM services GROUP BY category');
